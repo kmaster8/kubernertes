@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: alert
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: alert
+  template: 
+    metadata:
+      labels:
+        app: alert
+    spec:
+      containers:
+      - name: alert
+        image: ghcr.io/kmaster8/alert:v1
+        ports:
+        - containerPort: 5050
