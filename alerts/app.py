@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, json
 app = Flask(__name__)
 
 @app.route("/")
@@ -9,10 +9,12 @@ def hello():
 def alerts():
   if request.method == 'POST':
     print('Webhook Received')
-    request_json = request.json
+    #request_json = request.get_json()
+    request_data = request.data
 
     print('Payload: ')
-    print(json.dumps(request_json,indent=4))
+    print(request_data)
+    #print(json.dumps(request_json,indent=4))
     return 'Webhook notification received', 202
   else:
     return 'POST Method not supported', 405

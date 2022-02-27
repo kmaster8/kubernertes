@@ -15,5 +15,9 @@ spec:
       containers:
       - name: alert
         image: ghcr.io/kmaster8/alert:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 5050
+        env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
