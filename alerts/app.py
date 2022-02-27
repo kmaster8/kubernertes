@@ -6,7 +6,7 @@ def hello():
     return "Hello World!"
 
 @app.route("/robusta-alerts",methods=['POST'])
-def robusta-alerts():
+def alerts():
   if request.method == 'POST':
     print('Webhook Received')
     request_json = request.json
